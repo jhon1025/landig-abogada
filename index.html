@@ -1,0 +1,995 @@
+/* Blog Section */
+        .blog {
+            padding: 120px 0;
+            background: #fafafa;
+            border: 3px dashed #ccc;
+            position: relative;
+        }
+
+        .blog::before {
+            content: 'WIREFRAME SECTION';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            background: #ffeb3b;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border: 1px solid #000;
+        }<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VALTOR - Defensa Legal Estratégica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #f0f0f0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 48px;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2c2c2c;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 80px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-brand {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 300;
+            color: white;
+            margin-bottom: 32px;
+            letter-spacing: -2px;
+        }
+
+        .hero-highlight {
+            color: #d4af37;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* Contact Form - Simplified */
+        .contact-form {
+            max-width: 350px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            font-size: 16px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #d4af37;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.4;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            background: linear-gradient(135deg, #444 0%, #666 100%);
+            border-radius: 20px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 16px;
+            text-align: center;
+            border: 3px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 0;
+            background: #fafafa;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c2c2c;
+            padding: 20px;
+            border: 2px dashed #999;
+            background: #f9f9f9;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '[WIREFRAME TITLE]';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #ffeb3b;
+            padding: 3px 8px;
+            font-size: 10px;
+            border: 1px solid #000;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 64px;
+        }
+
+        .service {
+            background: white;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .service h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #2c2c2c;
+        }
+
+        .service p {
+            color: #666;
+            margin-bottom: 32px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .service-cta {
+            background: transparent;
+            border: 1px solid #2c2c2c;
+            color: #2c2c2c;
+            padding: 12px 32px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .service-cta:hover {
+            background: #2c2c2c;
+            color: white;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            margin-top: 80px;
+        }
+
+        .testimonial {
+            text-align: center;
+            padding: 40px 24px;
+        }
+
+        .testimonial p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 32px;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            color: #999;
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: #fafafa;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 32px;
+            color: #2c2c2c;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            background: #e0e0e0;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 16px;
+        }
+
+        /* Blog Page Styles */
+        .blog-page {
+            display: none;
+            padding: 140px 0 80px;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .blog-page.active {
+            display: block;
+        }
+
+        .blog-page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .blog-page-title {
+            font-size: 48px;
+            font-weight: 300;
+            color: #2c2c2c;
+            margin-bottom: 24px;
+        }
+
+        .blog-page-subtitle {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .back-to-home:hover {
+            color: #2c2c2c;
+        }
+
+        .blog-page .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-page .blog-post {
+            padding: 40px;
+            border: 1px solid #e0e0e0;
+            background: #fafafa;
+            border-radius: 12px;
+        }
+
+        .blog-page .blog-post h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+            line-height: 1.3;
+            padding: 0;
+            background: none;
+            border: none;
+        }
+
+        .blog-page .blog-post p {
+            color: #666;
+            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.7;
+            padding: 0;
+            background: none;
+            border: none;
+        }
+
+        .blog-page .blog-points {
+            margin: 24px 0;
+        }
+
+        .blog-page .blog-points li {
+            padding: 12px 0;
+            color: #666;
+            font-size: 15px;
+            background: none;
+            border-bottom: 1px solid #e0e0e0;
+            border-left: none;
+        }
+
+        .blog-page .read-more {
+            background: #2c2c2c;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .blog-page .read-more:hover {
+            background: #1a1a1a;
+        }
+
+        /* Main sections visibility */
+        .main-content {
+            display: block;
+        }
+
+        .main-content.hidden {
+            display: none;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .blog-post {
+            padding: 32px;
+            border: 2px solid #ddd;
+            background: #fff;
+            position: relative;
+        }
+
+        .blog-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0,0,0,0.02) 10px,
+                rgba(0,0,0,0.02) 20px
+            );
+            pointer-events: none;
+        }
+
+        .blog-post h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #2c2c2c;
+            line-height: 1.3;
+            padding: 12px;
+            background: #f0f0f0;
+            border: 1px solid #999;
+        }
+
+        .blog-post p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 3px solid #ddd;
+        }
+
+        .blog-points {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .blog-points li {
+            padding: 8px;
+            color: #666;
+            font-size: 13px;
+            background: #f5f5f5;
+            margin-bottom: 3px;
+            border-left: 3px solid #ccc;
+        }
+
+        .read-more {
+            color: #2c2c2c;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border: 2px solid #333;
+            padding: 8px 16px;
+            background: #fff;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .read-more:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: #999;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 64px;
+            margin-bottom: 48px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 24px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            margin-bottom: 12px;
+            display: block;
+            transition: color 0.2s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 32px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                text-align: center;
+            }
+
+            .hero-left {
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-image {
+                height: 300px;
+                order: -1;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .contact-form {
+                padding: 32px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 140px 0 100px;
+            }
+
+            .services,
+            .testimonials,
+            .about {
+                padding: 80px 0;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo" onclick="showHome()" style="cursor: pointer;">VALTOR</div>
+            <ul class="nav-links">
+                <li><a href="#servicios" onclick="showHome()">Servicios</a></li>
+                <li><a href="#testimonios" onclick="showHome()">Casos de Éxito</a></li>
+                <li><a href="#blog" onclick="showBlog(event)">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content (Home) -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-left">
+                        <div class="hero-brand">Estudio Legal VALTOR</div>
+                        
+                        <h1>VALTOR</h1>
+                        
+                        <p class="hero-subtitle"><strong>Estudio Legal y de Negocios</strong> especializado en derecho disciplinario, tutelas contra providencias judiciales y estrategias de negocio para abogados en evolución.</p>
+                        
+                        <div class="contact-form">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" name="nombre" placeholder="Ingresa tu nombre aquí" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="email" name="email" placeholder="Ingresa tu mejor correo" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="tel" name="celular" placeholder="Número de celular" required>
+                                </div>
+                                
+                                <button type="submit" class="form-submit">Contáctanos Ahora</button>
+                                
+                                <p class="form-note">
+                                    Importante: el correo electrónico debe ser válido para que puedas acceder al contenido.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="hero-image">
+                        <div>
+                            <div style="margin-bottom: 20px; font-size: 40px;">⚖️</div>
+                            <div>Sandra Valencia<br>CEO VALTOR<br><small style="opacity: 0.7;">Especialista en Derecho Disciplinario</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicios" class="services">
+            <div class="container">
+                <h2 class="section-title">Servicios</h2>
+                
+                <div class="services-grid">
+                    <div class="service">
+                        <h3>Defensa Disciplinaria</h3>
+                        <p>Estrategia técnica y probatoria personalizada para proteger tu reputación profesional en procesos disciplinarios.</p>
+                        <a href="#" class="service-cta">Evaluar Caso</a>
+                    </div>
+
+                    <div class="service">
+                        <h3>Tutelas Judiciales</h3>
+                        <p>Acciones de tutela estructuradas para controvertir providencias que vulneran derechos fundamentales.</p>
+                        <a href="#" class="service-cta">Consultar Viabilidad</a>
+                    </div>
+
+                    <div class="service">
+                        <h3>Mentorías Legales</h3>
+                        <p>Programas para abogados que buscan escalar su carrera y crear servicios innovadores con visión empresarial.</p>
+                        <a href="#" class="service-cta">Ver Programas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonios" class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Casos de Éxito</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <p>"Una defensa jurídicamente impecable, estratégica y rigurosa. Solo tengo manifestaciones de excelencia."</p>
+                        <div class="testimonial-author">Juez Penal del Circuito</div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Sandra me ayudó a diseñar una estrategia alineada con el verdadero valor de mis servicios y la esencia de mi marca."</p>
+                        <div class="testimonial-author">Brenda Castillo, Abogada – México</div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Recibí un concepto jurídico claro, preciso y completamente ajustado a mi situación. Altamente recomendable."</p>
+                        <div class="testimonial-author">Abogado litigante – Colombia</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>Sandra Valencia</h2>
+                        <p><strong>CEO de VALTOR</strong>, especialista en Derecho Disciplinario y Magíster en Derechos Humanos de la Universidad Externado de Colombia.</p>
+                        <p>Experiencia como Juez de Control de Garantías, Magistrada Auxiliar del Consejo Superior de la Judicatura y Magistrada de Comisión Seccional de Disciplina Judicial.</p>
+                        <p>VALTOR es la expresión de una trayectoria construida con rigor, visión estratégica y compromiso con la excelencia jurídica.</p>
+                    </div>
+                    <div class="about-image">
+                        <div>Sandra Valencia<br>CEO VALTOR</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section (Preview) -->
+        <section class="blog">
+            <div class="container">
+                <h2 class="section-title">Recursos Legales</h2>
+                <div class="blog-grid">
+                    <article class="blog-post">
+                        <h3>[ARTÍCULO 1] Defensa disciplinaria estratégica desde el primer día</h3>
+                        <p>[RESUMEN] Guía práctica para tomar decisiones correctas desde el primer momento de una notificación disciplinaria y proteger tu carrera legal.</p>
+                        <ul class="blog-points">
+                            <li>[PUNTO 1] Actúa desde la estrategia, no desde el miedo</li>
+                            <li>[PUNTO 2] Solicita asesoría legal especializada</li>
+                            <li>[PUNTO 3] Construye una versión libre estratégica</li>
+                        </ul>
+                        <a href="#" class="read-more">[LEER ARTÍCULO]</a>
+                    </article>
+
+                    <article class="blog-post">
+                        <h3>[ARTÍCULO 2] 7 criterios para evaluar viabilidad de tutelas</h3>
+                        <p>[RESUMEN] Los criterios técnicos que aplicamos para determinar si una acción de tutela contra una decisión judicial tiene posibilidades reales de prosperar.</p>
+                        <ul class="blog-points">
+                            <li>[PUNTO 1] Relevancia constitucional del asunto</li>
+                            <li>[PUNTO 2] Cumplimiento del requisito de subsidiariedad</li>
+                            <li>[PUNTO 3] Configuración de un defecto específico</li>
+                        </ul>
+                        <a href="#" class="read-more">[LEER ARTÍCULO]</a>
+                    </article>
+
+                    <article class="blog-post">
+                        <h3>[ARTÍCULO 3] Errores fatales en procesos disciplinarios</h3>
+                        <p>[RESUMEN] Los 5 errores más comunes que cometen los abogados al enfrentar investigaciones disciplinarias y cómo evitarlos para proteger tu licencia profesional.</p>
+                        <ul class="blog-points">
+                            <li>[PUNTO 1] No solicitar asesoría especializada a tiempo</li>
+                            <li>[PUNTO 2] Rendir versión libre sin preparación</li>
+                            <li>[PUNTO 3] Ignorar los términos procesales</li>
+                        </ul>
+                        <a href="#" class="read-more">[LEER ARTÍCULO]</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Blog Page -->
+    <div class="blog-page">
+        <div class="container">
+            <a href="#" class="back-to-home" onclick="showHome()">← Volver al inicio</a>
+            
+            <div class="blog-page-header">
+                <h1 class="blog-page-title">Blog Legal</h1>
+                <p class="blog-page-subtitle">Recursos especializados en derecho disciplinario y tutelas judiciales para abogados que buscan excelencia en su práctica profesional.</p>
+            </div>
+
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <h3>Cómo construir una defensa disciplinaria estratégica desde el primer día de notificación</h3>
+                    <p>Una notificación de apertura de investigación disciplinaria no solo impacta tu estabilidad profesional: pone en juego tu reputación, tu trayectoria y, en muchos casos, tu futuro laboral. Lo que hagas o dejes de hacer en los primeros días es crucial.</p>
+                    <ul class="blog-points">
+                        <li>Pausa: No actúes desde el miedo, actúa desde la estrategia</li>
+                        <li>Solicita asesoría legal especializada inmediatamente</li>
+                        <li>Entiende qué te están investigando y cuál es el enfoque</li>
+                        <li>Construye una versión libre estratégica, no emocional</li>
+                        <li>Evalúa las pruebas en tu contra y plantea línea defensiva</li>
+                        <li>Fortalece tu estado mental y emocional</li>
+                        <li>Define si necesitas representación especializada</li>
+                    </ul>
+                    <a href="#" class="read-more">Leer artículo completo</a>
+                </article>
+
+                <article class="blog-post">
+                    <h3>7 criterios clave que definen si una tutela contra decisión judicial tiene posibilidades reales de prosperar</h3>
+                    <p>Una acción de tutela contra una providencia judicial es uno de los mecanismos más excepcionales y complejos del derecho constitucional colombiano. No toda sentencia injusta es tutelable. Presentar una tutela sin evaluar correctamente su viabilidad puede cerrar puertas futuras.</p>
+                    <ul class="blog-points">
+                        <li>Relevancia constitucional del asunto - verificar afectación de derechos fundamentales</li>
+                        <li>Cumplimiento del requisito de subsidiariedad - agotar recursos ordinarios</li>
+                        <li>Cumplimiento del requisito de inmediatez - plazos razonables</li>
+                        <li>Configuración de un defecto específico reconocido por la Corte</li>
+                        <li>Impacto desproporcionado sobre el derecho fundamental</li>
+                        <li>Ausencia de temeridad o uso indebido de la tutela</li>
+                        <li>Calidad técnica del escrito y argumentación constitucional</li>
+                    </ul>
+                    <a href="#" class="read-more">Leer artículo completo</a>
+                </article>
+
+                <article class="blog-post">
+                    <h3>Los 5 errores fatales que todo abogado debe evitar en procesos disciplinarios</h3>
+                    <p>En más de 15 años de experiencia defendiendo abogados en procesos disciplinarios, he identificado patrones de errores que se repiten una y otra vez. Estos errores no solo comprometen el resultado del proceso, sino que pueden determinar el futuro de tu carrera profesional.</p>
+                    <ul class="blog-points">
+                        <li>No solicitar asesoría especializada a tiempo - muchos intentan defenderse solos</li>
+                        <li>Rendir versión libre sin preparación adecuada - puede ser perjudicial</li>
+                        <li>Ignorar los términos procesales y perder oportunidades de defensa</li>
+                        <li>No construir una estrategia probatoria desde el inicio</li>
+                        <li>Actuar desde la emoción en lugar de la técnica jurídica</li>
+                    </ul>
+                    <a href="#" class="read-more">Leer artículo completo</a>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>VALTOR</h3>
+                    <p>Estudio Legal y de Negocios especializado en derecho disciplinario, tutelas contra providencias judiciales y estrategias de negocio para abogados en evolución.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <a href="mailto:info@valtorlegalnegocios.com">info@valtorlegalnegocios.com</a>
+                    <a href="https://wa.me/123456789" target="_blank">WhatsApp</a>
+                    <a href="tel:+123456789">Teléfono</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <a href="#servicios">Defensa Disciplinaria</a>
+                    <a href="#servicios">Tutelas Judiciales</a>
+                    <a href="#servicios">Mentorías Legales</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VALTOR. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functions
+        function showBlog(event) {
+            event.preventDefault();
+            document.querySelector('.main-content').classList.add('hidden');
+            document.querySelector('.blog-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showHome() {
+            document.querySelector('.main-content').classList.remove('hidden');
+            document.querySelector('.blog-page').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('onclick')) return; // Skip if has onclick
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
